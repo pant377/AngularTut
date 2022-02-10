@@ -4,27 +4,28 @@ export const TASKS: Task[] = [
 
   {
     id: 1,
-    text:'Odontiatros',
-    day: 'may 6',
+    text:'Βενζίνη',
+    cost: 20,
     reminder: true
   },
   {
     id: 1,
-    text:'Dermatologos',
-    day: 'may 8',
+    text:'Nigh Out',
+    cost: 5.5,
     reminder: true
   },
   {
     id: 1,
-    text:'Tainia 3',
-    day: 'may 15',
+    text:'Night Out',
+    cost: 5,
     reminder: true
   },
   {
     id: 1,
-    text:'Track day',
-    day: 'may 30',
+    text:'Night Out',
+    cost: 10,
     reminder: true
   },
+
 
 ]
