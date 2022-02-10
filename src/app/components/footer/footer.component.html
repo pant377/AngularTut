@@ -1,5 +1,5 @@
-<div class="task">
-  <h4>Total Expenses </h4>
-  <h5>{{sum}} $</h5>
-  <button><fa-icon [ngStyle]="{'color':'red'}" [icon]="faTimes"></fa-icon></button>
+<div class="task" >
+  <h3>Total Expenses <fa-icon (click)="delTask()" [ngStyle]="{'color':'red'}" [icon]="faTimes"></fa-icon>
+  </h3>
+  <h5>{{sum}} $ </h5>
 </div>

@@ -9,6 +9,8 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
+import {HttpClientModule} from '@angular/common/http';
+import { AddTaskComponent } from './components/add-task/add-task.component'
 
 
 @NgModule({
@@ -19,12 +21,14 @@ import { FooterComponent } from './components/footer/footer.component';
     TasksComponent,
     TaskItemComponent,
     FooterComponent,
+    AddTaskComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

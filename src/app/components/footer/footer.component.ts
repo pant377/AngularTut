@@ -19,8 +19,10 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks)=>(this.tasks = tasks))
-    for(let i=0; i<this.tasks.length; i++){
-      this.sum += this.tasks[i].cost;
-    }
   }
+  public Calk = setTimeout(() => {for(let i=0; i<this.tasks.length; i++){
+    this.sum += this.tasks[i].cost;
+  }}, 1000);
+
+  public delTask(){this.sum=0}
 }
