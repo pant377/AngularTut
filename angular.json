@@ -27,7 +27,6 @@
               "src/assets"
             ],
             "styles": [
-              "C:/xampp/htdocs/QR-Order-BackEnd/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []

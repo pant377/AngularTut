@@ -9,20 +9,21 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
+  public sum:number = 0;
   @Input() task!: Task;
   tasks: Task[]=[];
-  public sum:number = 0
   faTimes = faTimes;
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks)=>(this.tasks = tasks))
+    this.tasks = this.taskService.getTasks()
+    for (let i: number = 0; i < this.tasks.length; i++) {
+      this.sum += this.tasks[i].cost;
+    }
   }
-  public Calk = setTimeout(() => {for(let i=0; i<this.tasks.length; i++){
-    this.sum += this.tasks[i].cost;
-  }}, 1000);
-
-  public delTask(){this.sum=0}
+  public delTask(){
+    this.sum=0
+    this.taskService.delete();
+  }
 }
