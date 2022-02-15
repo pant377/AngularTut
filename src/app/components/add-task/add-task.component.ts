@@ -1,41 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http'
-import {Task} from "../../Task";
+import {Component, EventEmitter, Injectable, OnInit, Output} from '@angular/core';
 import {TaskService} from "../../sevice/task.service";
+import {FooterComponent} from "../footer/footer.component";
+import {Task} from "../../Task";
+import {TaskItemComponent} from "../task-item/task-item.component"
 
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-}
-
+@Injectable({ providedIn: 'root' })
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit {
+
   text!: string;
   cost!:number;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService , private footerComponent: FooterComponent , private tc: TaskItemComponent) { }
 
   ngOnInit(): void {}
 
-  onSubmit(){
+  async onSubmit(){
     if(!this.text){
-      alert('enter an expense or fuck of looser');
+      alert('Enter an expense');
     }
-    const newTask = {
-      id: 1,
-      text: this.text,
-      cost: this.cost
+    if(this.text){
+      var y: number=+ this.cost;
+      const newTask = {
+        text: this.text,
+        cost: y
+      }
+      this.tc.onAddTask(newTask);
+      this.text = '',
+      this.cost = 0
     }
-    this.taskService.addEx(newTask);
-    this.text = '',
-    this.cost = 0
-
   }
 
 }

@@ -1,0 +1,19 @@
+{
+  "tasks": [
+    {
+      "text": "venzini",
+      "cost": 20,
+      "id": 1
+    },
+    {
+      "text": "exodoi",
+      "cost": 30,
+      "id": 2
+    },
+    {
+      "text": "gomena",
+      "cost": 5,
+      "id": 3
+    }
+  ]
+}
