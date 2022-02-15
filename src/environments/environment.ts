@@ -5,7 +5,14 @@
 export const environment = {
   production: false
 };
-
+let sum = 0;
+function setSum(value:number) {
+  sum = value;
+}
+export function getSum(){
+  return sum
+}
+export { sum, setSum };
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
