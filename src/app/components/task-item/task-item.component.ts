@@ -1,7 +1,12 @@
-import {Component, OnInit, Input,Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, Injectable} from '@angular/core';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import {TaskService} from "../../sevice/task.service";
+import {TasksComponent} from '../tasks/tasks.component'
 import {Task} from "../../Task";
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-task-item',
@@ -15,8 +20,14 @@ export class TaskItemComponent implements OnInit {
   faTimes = faTimes;
   tasks: Task[] = [];
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService ,private tci:TasksComponent) {}
 
   ngOnInit(): void {}
 
+  onDelete(task:Task){
+    this.onDeleteTask.emit(task);
+  }
+  onAddTask(task:Task){
+    this.tci.addTask(task)
+  }
 }
