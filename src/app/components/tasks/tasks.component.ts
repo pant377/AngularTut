@@ -31,6 +31,9 @@ export class TasksComponent implements OnInit {
     setSum(sum - task.cost);
     this.taskService.deleteTask(task).subscribe(()=>this.tasks=this.tasks.filter(t => t.id !== task.id));
   }
+  deleteAll(){
+    this.taskService.deleteAll().subscribe(this.tasks.pop);
+  }
   addTask(task: Task){
     this.taskService.addEx(task).subscribe((task)=>(this.tasks.push(task)));
   }

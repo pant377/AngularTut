@@ -6,6 +6,7 @@ import {sum, getSum, setSum} from "../../../environments/environment";
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {TasksComponent} from "../tasks/tasks.component";
 import {Observable} from "rxjs";
+import {TASKS} from "../../mock-tasks";
 
 @Injectable({ providedIn: 'root' })
 
@@ -15,13 +16,11 @@ import {Observable} from "rxjs";
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  @Input() task!: Task;
-  tasks: Task[] = []
-  private apiurl = 'http://localhost:3000/tasks/'
   faTimes = faTimes;
   sum:number = sum;
 
-  constructor(private tc:TasksComponent, private ts:TaskService,private http:HttpClient) {}
+  constructor(private tc:TasksComponent, private ts:TaskService,private http:HttpClient) {
+  }
 
   ngOnInit(): void {}
 
@@ -29,7 +28,7 @@ export class FooterComponent implements OnInit {
     return this.sum = getSum()
   }
   erase(){
-    console.log(this.task)
+    this.tc.deleteAll()
   }
 
 }
