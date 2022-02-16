@@ -17,8 +17,8 @@ export class TasksComponent implements OnInit {
 
   constructor(private taskService: TaskService ) {
   }
-  ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
+  ngOnInit(){
+   this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
     setTimeout(() =>{
       let c = 0
       for (let i: number = 0; i < this.tasks.length; i++) {
@@ -26,13 +26,17 @@ export class TasksComponent implements OnInit {
       }
       setSum(c)
     }, 1000);
+    return this.tasks;
   }
   deleteTask(task: Task){
     setSum(sum - task.cost);
     this.taskService.deleteTask(task).subscribe(()=>this.tasks=this.tasks.filter(t => t.id !== task.id));
   }
   deleteAll(){
-    this.taskService.deleteAll().subscribe(this.tasks.pop);
+    this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
+    for (let i: number = 0; i < this.tasks.length; i++) {
+      this.taskService.deleteTask(this.tasks[i]).subscribe(()=>this.tasks=this.tasks.filter(t =>t.id != this.tasks[i].id));
+    }
   }
   addTask(task: Task){
     this.taskService.addEx(task).subscribe((task)=>(this.tasks.push(task)));

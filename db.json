@@ -1,3 +1,34 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "text": "venzini 7/1",
+      "cost": 20,
+      "id": 1
+    },
+    {
+      "text": "mpura",
+      "cost": 5.5,
+      "id": 2
+    },
+    {
+      "text": "mpura",
+      "cost": 4.5,
+      "id": 3
+    },
+    {
+      "text": "mpura",
+      "cost": 4,
+      "id": 4
+    },
+    {
+      "text": "exodos",
+      "cost": 13,
+      "id": 5
+    },
+    {
+      "text": "mpura",
+      "cost": 5,
+      "id": 6
+    }
+  ]
 }
