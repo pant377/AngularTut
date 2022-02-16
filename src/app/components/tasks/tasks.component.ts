@@ -1,7 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {TaskService} from "../../sevice/task.service";
 import {Task} from "../../Task";
-import {FooterComponent} from "../footer/footer.component"
 import {setSum, sum} from "../../../environments/environment";
 
 @Injectable({
@@ -16,9 +15,8 @@ export class TasksComponent implements OnInit {
 
   tasks: Task[] = [];
 
-  constructor(private taskService: TaskService , private fc:FooterComponent) {
+  constructor(private taskService: TaskService ) {
   }
-
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
     setTimeout(() =>{
@@ -27,10 +25,8 @@ export class TasksComponent implements OnInit {
         c += this.tasks[i].cost;
       }
       setSum(c)
-    }, 1000); //run this after 3 seconds
-
+    }, 1000);
   }
-
   deleteTask(task: Task){
     setSum(sum - task.cost);
     this.taskService.deleteTask(task).subscribe(()=>this.tasks=this.tasks.filter(t => t.id !== task.id));
@@ -38,5 +34,4 @@ export class TasksComponent implements OnInit {
   addTask(task: Task){
     this.taskService.addEx(task).subscribe((task)=>(this.tasks.push(task)));
   }
-
 }

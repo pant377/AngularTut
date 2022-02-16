@@ -1,4 +1,4 @@
-<form class="form-control">
+<form *ngIf="showAddTask" class="form-control">
   <input placeholder="Add Expense" type="text" name="text" id="text" [(ngModel)]="text">
   <input placeholder="Add Cost " type="cost" name="cost" id="cost" style="width:30%" [(ngModel)]="cost" >
   <button class="btn" (click)="onSubmit()">Add</button>

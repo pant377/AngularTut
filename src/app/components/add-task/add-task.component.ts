@@ -4,6 +4,8 @@ import {FooterComponent} from "../footer/footer.component";
 import {Task} from "../../Task";
 import {TaskItemComponent} from "../task-item/task-item.component"
 import {setSum, sum} from "../../../environments/environment";
+import {Subscription} from "rxjs";
+import {UiService} from "../../sevice/ui.service";
 
 @Injectable({ providedIn: 'root' })
 @Component({
@@ -16,22 +18,24 @@ export class AddTaskComponent implements OnInit {
   text!: string;
   cost!:number;
   sum :number = sum;
+  showAddTask!: boolean;
+  sub : Subscription;
   @Output() onSub: EventEmitter<Task> = new EventEmitter();
 
-  constructor(private taskService: TaskService , private footerComponent: FooterComponent , private tc: TaskItemComponent) { }
+  constructor(private taskService: TaskService , private footerComponent: FooterComponent , private tc: TaskItemComponent, private ui:UiService) {
+    this.sub = this.ui.onToggle().subscribe(value => (this.showAddTask = value))
+  }
 
   ngOnInit(): void {}
 
   async onSubmit(){
     if(!this.text){
-      alert('Enter an expense');
-    }
+      alert('Enter an expense');}
     if(this.text){
-      var y: number =+ this.cost;
+      let y: number =+ this.cost;
       const newTask = {
         text: this.text,
-        cost: y
-      }
+        cost: y}
       setSum(y + sum)
       this.onSub.emit();
       this.tc.onAddTask(newTask);
@@ -39,5 +43,4 @@ export class AddTaskComponent implements OnInit {
       this.cost = 0
     }
   }
-
 }
