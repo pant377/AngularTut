@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
   }
   erase(){
     //alert('All Expenses will be deleted...');
-    this.onDel.emit()
+    this.tc.deleteAll()
   }
 
 }

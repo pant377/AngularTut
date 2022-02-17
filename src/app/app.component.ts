@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {Task} from "./Task";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,6 @@ import { Component } from '@angular/core';
 ]
 })
 export class AppComponent {
-  name = '';
+
 }
 export let c = 5000 ;

@@ -37,6 +37,9 @@ export class TasksComponent implements OnInit {
     for (let i: number = 0; i < this.tasks.length; i++) {
       this.taskService.deleteTask(this.tasks[i]).subscribe(()=>this.tasks=this.tasks.filter(t =>t.id != this.tasks[i].id));
     }
+    setTimeout(() =>{
+      window.location.reload();
+    }, 1000);
   }
   addTask(task: Task){
     this.taskService.addEx(task).subscribe((task)=>(this.tasks.push(task)));
