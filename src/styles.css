@@ -5,6 +5,9 @@
   margin: 0;
   padding: 0;
 }
+.clas {
+  background-color: gainsboro;
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -21,12 +24,12 @@ body {
 }
 
 .container {
-  border-color: aquamarine;
+  border-color: darkblue;
 }
 
 .btn {
   display: inline-block;
-  background: aquamarine;
+  background: darkblue;
   color: white;
   border: darkblue;
   padding: 10px 20px;
@@ -79,7 +82,8 @@ body {
   height: 20px;
 }
 .task{
-  background: aquamarine;
+  border-radius: 5px;
+  background: cadetblue;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
