@@ -3,6 +3,7 @@ import {Task} from "../Task";
 import {TASKS} from "../mock-tasks";
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import * as data from '../../assets/db.json'
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,12 +15,12 @@ const httpOptions = {
 })
 export class TaskService {
 
-  private apiurl = 'http://localhost:3000/tasks/'
+  private apiurl = '../assets/db.json'
 
   tasks: Task[] = [];
   constructor(private http:HttpClient) { }
 
-  getTasks(): Observable<any> {
+  getTasks():Observable<Task> {
     return this.http.get<Task>(this.apiurl);
   }
   addEx(task:Task):Observable<Task>{

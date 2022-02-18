@@ -2,6 +2,7 @@ import {Component, Injectable, OnInit} from '@angular/core';
 import {TaskService} from "../../sevice/task.service";
 import {Task} from "../../Task";
 import {setSum, sum} from "../../../environments/environment";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class TasksComponent implements OnInit {
   constructor(private taskService: TaskService ) {
   }
   ngOnInit(){
-   this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
+   this.taskService.getTasks().subscribe((tasks)=>this.tasks.push(tasks));
     setTimeout(() =>{
       let c = 0
       for (let i: number = 0; i < this.tasks.length; i++) {
@@ -33,7 +34,7 @@ export class TasksComponent implements OnInit {
     this.taskService.deleteTask(task).subscribe(()=>this.tasks=this.tasks.filter(t => t.id !== task.id));
   }
   deleteAll(){
-    this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
+    this.taskService.getTasks().subscribe((tasks)=>this.tasks.push(tasks));
     for (let i: number = 0; i < this.tasks.length; i++) {
       this.taskService.deleteTask(this.tasks[i]).subscribe(()=>this.tasks=this.tasks.filter(t =>t.id != this.tasks[i].id));
     }
