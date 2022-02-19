@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Task} from "../Task";
-import {TASKS} from "../mock-tasks";
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 
@@ -14,7 +13,8 @@ const httpOptions = {
 })
 export class TaskService {
 
-  private apiurl = 'http://localhost:3000/tasks/'
+  private apiurl = 'https://expensio-back.herokuapp.com/tasks'
+  //private port = process.env['PORT'] || 4000;
 
   tasks: Task[] = [];
   constructor(private http:HttpClient) { }
