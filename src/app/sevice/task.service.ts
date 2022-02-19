@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class TaskService {
 
-  private apiurl = 'https://expensio-back.herokuapp.com/tasks'
+  private apiurl = 'https://expensio-back.herokuapp.com/tasks/'
   //private port = process.env['PORT'] || 4000;
 
   tasks: Task[] = [];
