@@ -1,13 +1,12 @@
 import {Component, OnInit, Input, Output, EventEmitter, Injectable} from '@angular/core';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import {TasksComponent} from '../tasks/tasks.component';
 import {TaskService} from "../../sevice/task.service";
-import {TasksComponent} from '../tasks/tasks.component'
 import {Task} from "../../Task";
 
 @Injectable({
   providedIn: 'root'
 })
-
 @Component({
   selector: 'app-task-item',
   templateUrl: './task-item.component.html',
