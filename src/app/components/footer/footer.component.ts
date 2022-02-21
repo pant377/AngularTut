@@ -21,8 +21,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {}
 
   getS() {
-    return this.sum = getSum()
-  }
+   return this.sum = getSum();}
   erase(){
     this.tc.deleteAll()}
 }

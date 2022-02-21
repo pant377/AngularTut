@@ -17,15 +17,14 @@ export class TasksComponent implements OnInit {
 
   constructor(private taskService: TaskService ) {
   }
-  ngOnInit(){
+  async ngOnInit(){
+   let c = 0;
    this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
-    setTimeout(() =>{
-      let c = 0
-      for (let i: number = 0; i < this.tasks.length; i++) {
-        c += this.tasks[i].cost;
-      }
-      setSum(c)
-    }, 1000);
+   setTimeout(()=>{
+     for (let i: number = 0; i < this.tasks.length; i++) {
+       c += this.tasks[i].cost;}
+     setSum(c);
+   },500);
   }
   deleteTask(task: Task){
     setSum(sum - task.cost);
@@ -35,8 +34,7 @@ export class TasksComponent implements OnInit {
     this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
     setTimeout(() =>{
       for (let i: number = 0; i < this.tasks.length; i++) {
-        this.taskService.deleteTask(this.tasks[i]).subscribe(()=>this.tasks=this.tasks.filter(t =>t.id != this.tasks[i].id));
-      }
+        this.taskService.deleteTask(this.tasks[i]).subscribe(()=>this.tasks=this.tasks.filter(t =>t.id != this.tasks[i].id));}
       alert("Sure you want to erase all ?");
       window.location.reload();
     }, 500);
