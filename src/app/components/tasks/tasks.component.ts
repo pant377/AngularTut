@@ -15,11 +15,12 @@ export class TasksComponent implements OnInit {
 
   tasks:Task[] = [];
 
-  constructor(private taskService: TaskService ) {}
+  constructor(private taskService: TaskService) {}
 
   async ngOnInit(){
-   await this.taskService.getTasks().subscribe((tasks)=>{this.tasks=tasks;
+   await this.taskService.getTasks().subscribe((tasks)=>{
      let c = 0;
+     this.tasks=tasks;
      for (let i: number = 0; i < this.tasks.length; i++) {
        c += this.tasks[i].cost;
      }
