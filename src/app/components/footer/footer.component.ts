@@ -1,9 +1,7 @@
-import {Component, EventEmitter, Injectable, Input, OnInit, Output} from '@angular/core';
-import {TaskService} from "../../sevice/task.service";
+import {Component, EventEmitter, Injectable, OnInit, Output} from '@angular/core';
 import {Task} from "../../Task";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import {sum, getSum, setSum} from "../../../environments/environment";
-import {HttpClient,HttpHeaders} from "@angular/common/http";
+import {sum, getSum} from "../../../environments/environment";
 import {TasksComponent} from "../tasks/tasks.component";
 
 @Injectable({ providedIn: 'root' })
@@ -18,8 +16,7 @@ export class FooterComponent implements OnInit {
   faTimes = faTimes;
   sum:number = sum;
 
-  constructor(private tc:TasksComponent, private ts:TaskService,private http:HttpClient) {
-  }
+  constructor(private tc:TasksComponent) {}
 
   ngOnInit(): void {}
 
@@ -27,8 +24,5 @@ export class FooterComponent implements OnInit {
     return this.sum = getSum()
   }
   erase(){
-    //alert('All Expenses will be deleted...');
-    this.tc.deleteAll()
-  }
-
+    this.tc.deleteAll()}
 }

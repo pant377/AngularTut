@@ -13,7 +13,7 @@ import {setSum, sum} from "../../../environments/environment";
 })
 export class TasksComponent implements OnInit {
 
-  tasks: Task[] = [];
+  tasks:Task[] = [];
 
   constructor(private taskService: TaskService ) {
   }
@@ -26,7 +26,6 @@ export class TasksComponent implements OnInit {
       }
       setSum(c)
     }, 1000);
-    return this.tasks;
   }
   deleteTask(task: Task){
     setSum(sum - task.cost);
@@ -34,12 +33,13 @@ export class TasksComponent implements OnInit {
   }
   deleteAll(){
     this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
-    for (let i: number = 0; i < this.tasks.length; i++) {
-      this.taskService.deleteTask(this.tasks[i]).subscribe(()=>this.tasks=this.tasks.filter(t =>t.id != this.tasks[i].id));
-    }
     setTimeout(() =>{
+      for (let i: number = 0; i < this.tasks.length; i++) {
+        this.taskService.deleteTask(this.tasks[i]).subscribe(()=>this.tasks=this.tasks.filter(t =>t.id != this.tasks[i].id));
+      }
+      alert("Sure you want to erase all ?");
       window.location.reload();
-    }, 1000);
+    }, 500);
   }
   addTask(task: Task){
     this.taskService.addEx(task).subscribe((task)=>(this.tasks.push(task)));

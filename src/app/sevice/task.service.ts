@@ -12,10 +12,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TaskService {
-
   private apiurl = 'https://luxurious-fifth-tarascosaurus.glitch.me/tasks/'
 
-  tasks: Task[] = [];
   constructor(private http:HttpClient) { }
 
   getTasks(): Observable<any> {

@@ -29,6 +29,26 @@
       "text": "mpura",
       "cost": 5,
       "id": 7
+    },
+    {
+      "text": "venzini 19/1",
+      "cost": 20,
+      "id": 9
+    },
+    {
+      "text": "fai",
+      "cost": 5.6,
+      "id": 10
+    },
+    {
+      "text": "venzini 2/1",
+      "cost": 20,
+      "id": 11
+    },
+    {
+      "text": "exodoi sto peripou arxes tou mina",
+      "cost": 6,
+      "id": 12
     }
   ]
 }

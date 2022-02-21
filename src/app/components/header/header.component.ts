@@ -1,4 +1,4 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UiService} from "../../sevice/ui.service";
 import {Subscription} from "rxjs";
 
