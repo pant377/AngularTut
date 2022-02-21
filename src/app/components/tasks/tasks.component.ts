@@ -15,16 +15,16 @@ export class TasksComponent implements OnInit {
 
   tasks:Task[] = [];
 
-  constructor(private taskService: TaskService ) {
-  }
+  constructor(private taskService: TaskService ) {}
+
   async ngOnInit(){
-   let c = 0;
-   this.taskService.getTasks().subscribe((tasks)=>this.tasks=tasks);
-   setTimeout(()=>{
+   await this.taskService.getTasks().subscribe((tasks)=>{this.tasks=tasks;
+     let c = 0;
      for (let i: number = 0; i < this.tasks.length; i++) {
-       c += this.tasks[i].cost;}
+       c += this.tasks[i].cost;
+     }
      setSum(c);
-   },500);
+      });
   }
   deleteTask(task: Task){
     setSum(sum - task.cost);
