@@ -27,7 +27,6 @@ export class FooterComponent implements OnInit {
     return this.sum = getSum()
   }
   erase(){
-    //alert('All Expenses will be deleted...');
     this.tc.deleteAll()
   }
 

@@ -19,7 +19,7 @@ export class TasksComponent implements OnInit {
   constructor(private taskService: TaskService ) {
   }
   ngOnInit(){
-   this.taskService.getTasks().subscribe((tasks)=>this.tasks.push(tasks));
+   this.taskService.getTasks()
     setTimeout(() =>{
       let c = 0
       for (let i: number = 0; i < this.tasks.length; i++) {
